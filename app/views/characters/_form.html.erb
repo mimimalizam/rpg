@@ -1,31 +1,49 @@
-<%= form_for @characters do |f| %>
+ <% if @characters.class == NilClass %>
+  <%= form_for :character, url: characters_path do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
  
-  <% if @character.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@character.errors.count, "error") %> prohibited
-        this character from being saved:
-      </h2>
-      <ul>
-        <% @character.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+    <p>
+      <%= f.label :avatar %><br>
+      <%= f.text_area :avatar %>
+    </p>
+ 
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>  
+  <% else %>
+    <%= form_for @characters do |f| %>
+  
+      <% if @character.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@character.errors.count, "error") %> prohibited
+            this character from being saved:
+          </h2>
+        <ul>
+          <% @character.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+ 
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+ 
+    <p>
+      <%= f.label :avatar %><br>
+      <%= f.text_area :avatar %>
+    </p>
+ 
+    <p>
+      <%= f.submit %>
+    </p>
+ 
   <% end %>
- 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :avatar %><br>
-    <%= f.text_area :avatar %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
 <% end %>

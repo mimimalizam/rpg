@@ -3,4 +3,9 @@ class CharactersController < ApplicationController
 # but only public methods can be actions for controllers.v
   def new
   end
+
+  def create
+  	render plain: params[:character].inspect
+  end
+
 end

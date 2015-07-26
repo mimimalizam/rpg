@@ -1,6 +1,10 @@
 class CharactersController < ApplicationController
 # There are public, private and protected methods in Ruby,
-# but only public methods can be actions for controllers.v
+# but only public methods can be actions for controllers.
+  def show
+    @character = Character.find(params[:id])
+  end
+
   def new
   end
 

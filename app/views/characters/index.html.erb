@@ -1,0 +1,15 @@
+<h1>Listing characters</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Avatar</th>
+  </tr>
+ 
+  <% @characters.each do |character| %>
+    <tr>
+      <td><%= character.name %></td>
+      <td><%= character.avatar %></td>
+    </tr>
+  <% end %>
+</table>

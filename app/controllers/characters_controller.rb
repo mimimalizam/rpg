@@ -5,12 +5,15 @@ class CharactersController < ApplicationController
   end
 
   def create
-  	# capital Character,
-  	# we are referring to the class named Character defined in models
-    @character = Character.new(params[:character])
+    @character = Character.new(character_params)
  
-    # to save the model in the db: 
     @character.save
     redirect_to @character
   end
+  private
+  # the method is often made private to make sure
+  # it can't be called outside its intended context.
+  	def character_params
+  		params.require(:character).permit(:name, :avatar)
+  	end
 end

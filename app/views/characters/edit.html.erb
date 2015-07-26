@@ -1,11 +1,11 @@
-<h1>New Character</h1>
-
-<%= form_for :character, url: characters_path do |f| %>
-    
-    <% if @chracter.errors.any? %>
+<h1>Editing character</h1>
+ 
+<%= form_for :character, url: character_path(@character), method: :patch do |f| %>
+ 
+  <% if @character.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@acharacter.errors.count, "error") %> prohibited
+        <%= pluralize(@character.errors.count, "error") %> prohibited
         this character from being saved:
       </h2>
       <ul>
@@ -15,7 +15,7 @@
       </ul>
     </div>
   <% end %>
-
+ 
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -29,5 +29,7 @@
   <p>
     <%= f.submit %>
   </p>
+ 
 <% end %>
+ 
 <%= link_to 'Back', characters_path %>

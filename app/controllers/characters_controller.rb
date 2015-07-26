@@ -10,17 +10,34 @@ class CharactersController < ApplicationController
   end
 
   def new
+  	@character = Character.new
+  end
+
+  def edit
+  	@acharacter = Character.find(params[:id])
   end
 
   def create
     @character = Character.new(character_params)
  
-    @character.save
-    redirect_to @character
+    if @character.save
+    	redirect_to @character
+    else
+    	render 'new'
+    end
   end
+
+  def update
+  	@character = Character.find(params[:id])
+ 
+  	if @character.update(character_params)
+   		redirect_to @character
+ 	else
+    	render 'edit'
+    end
+end
+
   private
-  # the method is often made private to make sure
-  # it can't be called outside its intended context.
   	def character_params
   		params.require(:character).permit(:name, :avatar)
   	end

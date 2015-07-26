@@ -1,4 +1,6 @@
 Rpg::Application.routes.draw do
+  resources :attributes
+
   resources :characters
   # get "welcome/index"
   devise_for :users

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  level: 1
+  avatar: MyText
+  character_id: 
+
+two:
+  name: MyString
+  level: 1
+  avatar: MyText
+  character_id: 

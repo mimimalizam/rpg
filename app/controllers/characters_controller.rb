@@ -35,7 +35,14 @@ class CharactersController < ApplicationController
  	else
     	render 'edit'
     end
-end
+  end
+
+  def destroy
+  	@character = Character.find(params[:id])
+  	@character.destroy
+ 
+  	redirect_to characters_path
+  end
 
   private
   	def character_params

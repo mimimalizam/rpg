@@ -24,6 +24,18 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# User authentication
+gem 'devise'
+
+# Use PostgreSQL as the database for Active Record
+gem 'pg', :require => 'pg'
+
+# Uploader
+gem 'carrierwave'
+
+# paginator for Rails 3 and 4
+gem 'kaminari'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -42,18 +54,20 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+
+  gem 'cucumber-rails', :require => false
+  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'  
+ 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+ 
   #Spring is a Rails application preloader. It speeds up development by keeping your 
   #application running in the background so you don't need to boot it every time you run a test, rake task or migration.
   gem 'spring'
 end
 
 group :production do 
-  gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
 end

@@ -10,7 +10,7 @@ class CharactersController < ApplicationController
   end
 
   def new
-  	@character = Character.new
+  	@character = current_user.characters.build
   end
 
   def edit
@@ -18,7 +18,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.new(character_params)
+    @character = current_user.characters.build(character_params)
  
     if @character.save
     	redirect_to @character

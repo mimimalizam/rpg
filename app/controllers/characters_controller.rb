@@ -5,7 +5,12 @@ class CharactersController < ApplicationController
   end
 
   def create
-  	render plain: params[:character].inspect
+  	# capital Character,
+  	# we are referring to the class named Character defined in models
+    @character = Character.new(params[:character])
+ 
+    # to save the model in the db: 
+    @character.save
+    redirect_to @character
   end
-
 end

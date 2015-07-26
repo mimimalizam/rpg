@@ -12,7 +12,7 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= @attribute.avatar %>
+  <%= image_tag(@attribute.avatar_url, :width => 300) if @attribute.avatar.present? %>
 </p>
 
 <p>

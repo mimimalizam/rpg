@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
   end
 
   def edit
-  	@acharacter = Character.find(params[:id])
+  	@character = Character.find(params[:id])
   end
 
   def create

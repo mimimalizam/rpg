@@ -1,5 +1,4 @@
- <% if @characters.class == NilClass %>
-  <%= form_for :character, url: characters_path do |f| %>
+   <%= form_for @character do |f| %>
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
@@ -14,36 +13,4 @@
       <%= f.submit %>
     </p>
   <% end %>  
-  <% else %>
-    <%= form_for @characters do |f| %>
-  
-      <% if @character.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@character.errors.count, "error") %> prohibited
-            this character from being saved:
-          </h2>
-        <ul>
-          <% @character.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
  
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
- 
-    <p>
-      <%= f.label :avatar %><br>
-      <%= f.file_field :avatar %>
-    </p>
- 
-    <p>
-      <%= f.submit %>
-    </p>
- 
-  <% end %>
-<% end %>

@@ -1,6 +1,8 @@
 Rpg::Application.routes.draw do
   
-  resources :characters 
+  resources :characters do
+    resources :abilities
+  end
   # get "welcome/index"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

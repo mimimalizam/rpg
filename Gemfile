@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass'
@@ -28,9 +27,9 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'cucumber-rails', :require => false  
+  gem 'cucumber-rails', :require => false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug' 
+  gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -42,6 +41,6 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-group :production do 
+group :production do
   gem 'rails_12factor', '0.0.2'
 end

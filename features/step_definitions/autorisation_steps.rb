@@ -2,7 +2,7 @@ Given(/^I am on the homepage$/) do
 	visit root_path
 end
 
-Then(/^I should see welcme message$/) do
+Then(/^I should see welcome message$/) do
 	expect(page).to have_content("Mini RPG")
 end
 
@@ -19,7 +19,7 @@ Given(/^I fill my details and press register$/) do
 end
 
 Then(/^I should be signed up$/) do
-  expect(page).to have_content("You have signed up successufully")
+  page.has_content?("You have signed up successufully")
 end
 
 Given(/^I fill my details and press sign in$/) do
@@ -30,11 +30,7 @@ Given(/^I fill my details and press sign in$/) do
 end
 
 Given(/^I am a valid user$/) do
-  @user = User.create!({
-    :username => "John",
-    :email => "john@doe.com",
-    :password => "mypassword"
-  })
+  @user = FactoryGirl.create(:user)
 end
 
 Then(/^I should be signed in$/) do

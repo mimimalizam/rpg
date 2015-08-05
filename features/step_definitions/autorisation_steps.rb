@@ -19,7 +19,7 @@ Given(/^I fill my details and press register$/) do
 end
 
 Then(/^I should be signed up$/) do
-  page.has_content?("You have signed up successufully")
+  expect(page).to have_content("You have signed up successufully")
 end
 
 Given(/^I fill my details and press sign in$/) do
@@ -34,10 +34,10 @@ Given(/^I am a valid user$/) do
 end
 
 Then(/^I should be signed in$/) do
-  page.has_content?("Signed in successufully")
+  expect(page).to have_content("Signed in successufully")
 end
 
 Then(/^I should be warned because of invalid sign in$/) do
-  page.has_content?("Invalid email or password")
+  expect(page).to have_content("Invalid email or password")
 end
 

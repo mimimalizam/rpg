@@ -19,13 +19,15 @@ Given(/^I fill my details and press register$/) do
 end
 
 Then(/^I should be signed up$/) do
-  expect(page).to have_content("You have signed up successufully")
+  expect(page).to have_content("Logout")
 end
 
 Given(/^I fill my details and press sign in$/) do
-  fill_in('Username', :with => 'John')
-  fill_in('Email', :with => 'john@doe.com')
-  fill_in('Password', :with => 'mypassword')
+  @user = FactoryGirl.build(:user)
+
+  fill_in('Username', :with => @user.username)
+  fill_in('Email', :with => @user.email)
+  fill_in('Password', :with => @user.password)
   click_button("Sign in")
 end
 
@@ -34,10 +36,9 @@ Given(/^I am a valid user$/) do
 end
 
 Then(/^I should be signed in$/) do
-  expect(page).to have_content("Signed in successufully")
+  expect(page).to have_content("Welcome")
 end
 
 Then(/^I should be warned because of invalid sign in$/) do
   expect(page).to have_content("Invalid email or password")
 end
-

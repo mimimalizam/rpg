@@ -1,6 +1,7 @@
-Feature: Signed in user
-  Can visit characters listing page
-  And log out
+Feature: Logged user
+  As a logged user
+  I should be able to visit characters listing page
+  And to logout
 
   Background: I am signed in
     Given I am a valid user

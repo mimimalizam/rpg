@@ -1,6 +1,6 @@
 Feature: Logged user
   As a logged user
-  I should be able to visit characters listing page
+  I should be able to visit listing characters page
   And to logout
 
   Background: I am signed in
@@ -14,4 +14,6 @@ Feature: Logged user
     When I click on "Logout" link
     Then I should see "Login"
 
-    #Scenario: Visiting homepage
+  Scenario: Visiting listing characters page
+    When I click on "My Characters" link
+    Then I should see "Listing characters"

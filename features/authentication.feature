@@ -22,4 +22,4 @@ Feature: Sign in
   Scenario: Invalid user signs in
     Given I am on the homepage
     And I fill my details and press sign in
-    Then I should be warned because of invalid sign in 
+    Then I should be warned because of invalid credentials

@@ -39,6 +39,6 @@ Then(/^I should be signed in$/) do
   expect(page).to have_content("Welcome")
 end
 
-Then(/^I should be warned because of invalid sign in$/) do
+Then(/^I should be warned because of invalid credentials$/) do
   expect(page).to have_content("Invalid email or password")
 end

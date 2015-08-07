@@ -24,5 +24,5 @@ Feature: Logged user
     And I should see "Avatar"
     When I fill in new character form
     And I click on Create Character
-    Then I should see created character on characters listing page
+    Then I should see created character
 

@@ -25,4 +25,3 @@ Feature: Logged user
     When I fill in new character form
     And I click on Create Character
     Then I should see created character
-

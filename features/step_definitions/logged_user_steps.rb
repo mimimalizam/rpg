@@ -36,6 +36,6 @@ When(/^I fill in new character form$/) do
   attach_file("Avatar", image_path)
 end
 
-Then(/^I should see created character on characters listing page$/) do
+Then(/^I should see created character$/) do
  expect(page).to have_content(@character.name)
 end

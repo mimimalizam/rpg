@@ -19,6 +19,7 @@ Feature: Editing and destroying characters
     When I click on "Edit" link
     Then I should see "Editing character"
 
+    @javascript
   Scenario: I want to destroy "Warrior" character
     When I click on "Destroy" link
     And I click OK 

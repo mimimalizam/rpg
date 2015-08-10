@@ -18,9 +18,8 @@ Feature: Editing and destroying characters
   Scenario: I want to edit  character "Warrior"
     When I click on "Edit" link
     Then I should see "Editing character"
-    # fali updejt
 
   Scenario: I want to destroy "Warrior" character
     When I click on "Destroy" link
-    And I click "OK" button
+    And I click OK 
     Then I should not see the "Warrior" anymore

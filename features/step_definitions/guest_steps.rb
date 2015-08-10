@@ -3,8 +3,8 @@ Given(/^I am not signed in$/) do
   expect(page).to have_content("Login")
 end
 
-When(/^I visit "(.*?)"$/) do |arg1|
-    visit "/#{arg1}"
+When(/^I visit characters_path$/) do
+    visit characters_path
 end
 
 Then(/^I should see "(.*?)" message$/) do |arg1|

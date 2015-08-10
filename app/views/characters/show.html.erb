@@ -1,35 +1,39 @@
-<h1>
-  <strong>Name:</strong>
-  <%= @character.name %>
-</h1>
- 
-<p>
+<% if @character.user_id == current_user.id %>
+  <h1>
+    <strong>Name:</strong>
+    <%= @character.name %>
+  </h1>
+
+  <p>
   <strong>Avatar:</strong>
   <%= image_tag(@character.avatar_url, :width => 300) if @character.avatar.present? %>
-</p>
+  </p>
 
 
-<h2> Abilities:</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Level</th>
-    <th colspan="2"></th>
-  </tr>
- 
-  <% @character.abilities.each do |ability| %>
+  <h2> Abilities:</h2>
+  <table>
     <tr>
+      <th>Name</th>
+      <th>Level</th>
+      <th colspan="2"></th>
+    </tr>
+
+    <% @character.abilities.each do |ability| %>
+      <tr>
       <td><%= ability.name %></td>
       <td><%= ability.level %></td>      
       <td><%= link_to 'Edit', edit_character_ability_path(ability.character, ability) %></td>
       <td><%= link_to 'Destroy', character_ability_path(ability.character, ability),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    </tr>
-  <% end %>
-</table>
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
 
-<%= link_to 'Add ability', new_character_ability_path(@character) %>
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+  <%= link_to 'Add ability', new_character_ability_path(@character) %>
+  <%= link_to 'Edit', edit_character_path(@character) %> |
+  <%= link_to 'Back', characters_path %>
+
+<% else %>
+  <%= render 'index' %>
+<% end %>

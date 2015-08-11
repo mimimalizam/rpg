@@ -31,5 +31,5 @@ When(/^I change ability name to Strength$/) do
 end
 
 When(/^I click on "(.*?)" button$/) do |button|  
-  click_button "#{button}"
+  click_button(button)
 end

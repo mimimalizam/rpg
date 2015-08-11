@@ -30,6 +30,6 @@ When(/^I change ability name to Strength$/) do
   fill_in("Name", :with => "Strength")
 end
 
-When(/^I click on Update Ability$/) do
-  click_button "Update Ability"
+When(/^I click on "(.*?)" button$/) do |button|  
+  click_button "#{button}"
 end

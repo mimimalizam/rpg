@@ -13,7 +13,7 @@ Feature: Changing character's ability
     And I click on "Edit ability" link
     Then I should see "Editing ability"
     When I change ability name to Strength
-    And I click on Update Ability
+    And I click on "Update Ability" button
     Then I should see "Strength"
 
   @javascript

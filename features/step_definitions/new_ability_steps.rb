@@ -4,6 +4,6 @@ When(/^I fill in new ability form$/) do
 end
 
 When(/^I click on Create Ability$/) do
-   @character.abilities.create!({ :name => "speed", :level => "23" })
-   click_button "Create Ability"
+  @character.abilities.create!({ :name => "speed", :level => "23" })
+  click_button "Create Ability"
 end

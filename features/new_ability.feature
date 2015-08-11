@@ -1,7 +1,7 @@
-Feature: Character's ability
+Feature: Adding new character's ability
   As a logged user
   I should be able to visit listing abilities page for a given character
-  In order to add new or change existing one
+  In order to add new one
 
   Background: I am signed in and on the character's page
     Given I am a valid user

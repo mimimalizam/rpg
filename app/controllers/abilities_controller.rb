@@ -1,8 +1,8 @@
 class AbilitiesController < ApplicationController
-	def new
-		@character = Character.find(params[:character_id])
-  	@ability = @character.abilities.build
-  	end
+  def new
+    @character = Character.find(params[:character_id])
+    @ability = @character.abilities.build
+  end
 
   def edit
     @character = Character.find(params[:character_id])
@@ -10,11 +10,11 @@ class AbilitiesController < ApplicationController
   end
 
   def create
-  	@character = Character.find(params[:character_id])
-  	@ability = @character.abilities.build(allowed_params)
-  	@ability.save
-		redirect_to character_path(@character)
- 	end
+    @character = Character.find(params[:character_id])
+    @ability = @character.abilities.build(allowed_params)
+    @ability.save
+    redirect_to character_path(@character)
+  end
 
   def update
     @character = Character.find(params[:character_id])
@@ -36,8 +36,8 @@ class AbilitiesController < ApplicationController
   end
 
 
-    private
-    def allowed_params
-      params.require(:ability).permit(:name, :level)
-    end
+  private
+  def allowed_params
+    params.require(:ability).permit(:name, :level)
+  end
 end

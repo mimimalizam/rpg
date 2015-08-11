@@ -22,8 +22,8 @@
       <tr>
       <td><%= ability.name %></td>
       <td><%= ability.level %></td>      
-      <td><%= link_to 'Edit', edit_character_ability_path(ability.character, ability) %></td>
-      <td><%= link_to 'Destroy', character_ability_path(ability.character, ability),
+      <td><%= link_to 'Edit ability', edit_character_ability_path(ability.character, ability) %></td>
+      <td><%= link_to 'Destroy ability', character_ability_path(ability.character, ability),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>
       </tr>

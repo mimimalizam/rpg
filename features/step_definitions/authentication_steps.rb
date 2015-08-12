@@ -39,6 +39,19 @@ Then(/^I should be signed in$/) do
   expect(page).to have_content("Welcome")
 end
 
+Given(/^I am logged in$/) do
+  visit root_path
+  fill_in("Username", :with => "John") 
+  fill_in("Email", :with => "doejohndoe@gmail.com") 
+  fill_in("Password", :with => "doejohndoe")
+  @user = User.create!({
+    :username => "John",
+    :email => "doejohndoe@gmail.com",
+    :password => "doejohndoe"
+  })
+  click_button "Sign in"
+end
+
 Then(/^I should be warned because of invalid credentials$/) do
   expect(page).to have_content("Invalid email or password")
 end

@@ -21,14 +21,14 @@ describe Ability do
         before do 
           @ability.level = 31
         end
-        it { expect(@ability.red?).to eq(false) }
+        it { expect(@ability).not_to be_red }
       end
 
       context "ability level is below or equal to 30" do
         before do
           @ability.level = 29
         end
-        it { expect(@ability.red?).to eq(true) }
+        it { expect(@ability).to be_red }
       end
     end
 
@@ -37,14 +37,14 @@ describe Ability do
         before do
           @ability.level = 79
         end
-        it { expect(@ability.yellow?).to eq(false) }
+        it { expect(@ability).not_to be_yellow }
       end
 
       context "ability level is above 30 and below or equal to 70" do
         before do
           @ability.level = 37
         end
-        it { expect(@ability.yellow?).to eq(true) }
+        it { expect(@ability).to be_yellow }
       end
     end
 
@@ -53,14 +53,14 @@ describe Ability do
         before do 
           @ability.level = 67
         end
-        it { expect(@ability.green?).to eq(false) }
+        it { expect(@ability).not_to be_green }
       end
 
       context "ability level is above 70 and below or equal to 100" do
         before do
           @ability.level = 79
         end
-        it { expect(@ability.green?).to eq(true) }
+        it { expect(@ability).to be_green }
       end
     end
   end

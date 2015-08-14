@@ -18,48 +18,36 @@ describe Ability do
 
     describe "#red" do
       context "ability level is above 30" do
-        before do 
-          @ability.level = 31
-        end
+        before { @ability.level = 31 }
         it { expect(@ability).not_to be_red }
       end
 
       context "ability level is below or equal to 30" do
-        before do
-          @ability.level = 29
-        end
+        before {  @ability.level = 29 }
         it { expect(@ability).to be_red }
       end
     end
 
     describe "#yellow" do
       context "ability level is below or equal to 30 or above 70" do
-        before do
-          @ability.level = 79
-        end
+        before { @ability.level = 79 }
         it { expect(@ability).not_to be_yellow }
       end
 
       context "ability level is above 30 and below or equal to 70" do
-        before do
-          @ability.level = 37
-        end
+        before { @ability.level = 37 }
         it { expect(@ability).to be_yellow }
       end
     end
 
     describe "#green" do
       context "ability level is below  70" do
-        before do 
-          @ability.level = 67
-        end
+        before { @ability.level = 67 }
         it { expect(@ability).not_to be_green }
       end
 
       context "ability level is above 70 and below or equal to 100" do
-        before do
-          @ability.level = 79
-        end
+        before { @ability.level = 79 }
         it { expect(@ability).to be_green }
       end
     end

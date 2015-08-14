@@ -13,26 +13,14 @@ class Ability < ActiveRecord::Base
             }
 
   def red?
-   if self.level <= 30
-     true 
-   else
-     false
-   end
+    self.level <= 30
   end
 
   def yellow?
-    if self.level > 30 && self.level <= 70
-      true
-    else
-      false
-    end
+    self.level > 30 && self.level <= 70
   end
 
   def green?
-    if self.level > 70
-      true
-    else
-      false
-    end
+    self.level > 70
   end
 end

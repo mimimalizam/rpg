@@ -13,14 +13,14 @@ RSpec.describe CharactersController, :type => :controller do
     context "successfull new character" do
       before do
         allow(controller).to receive(:current_user) { @user }
-        @character = double(Character)
+        @character = FactoryGirl.build_stubbed(:character)
         allow(@user).to receive_message_chain(:characters, :build) { @character }
         allow(@character).to receive(:save) { true}
       end
 
       it "calls save on character" do
         expect(@character).to receive(:save) { true }
-        post character_path(@character), { :name => "Warrior" }
+        post :create , { :character => { :name => "Warrior" } }
       end
 
       #it "should redirect to char types" do

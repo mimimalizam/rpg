@@ -8,13 +8,16 @@ RSpec.describe CharactersController, :type => :controller do
   end
   
   describe "POST create" do
-    context "successfull new character" do
 
+    before do
+      @character =  double(Character)
+      allow(@character).to receive(:class) { Character }
+      allow(controller).to receive(:current_user) { @user }
+      allow(@user).to receive_message_chain(:characters, :build) { @character }
+    end
+    
+    context "successfull new character" do
       before do
-        @character =  double(Character)
-        allow(@character).to receive(:class) { Character }
-        allow(controller).to receive(:current_user) { @user }
-        allow(@user).to receive_message_chain(:characters, :build) { @character }
         allow(@character).to receive(:save) { true }
       end
 
@@ -28,5 +31,17 @@ RSpec.describe CharactersController, :type => :controller do
          expect(response).to have_http_status(:redirect)
       end
     end
+
+   context "unsuccessfull new character" do
+     before do
+       allow(@character).to receive(:save) { false }
+     end
+     
+     it "renders template new" do
+       post :create, { :character => { :name => "ab" } }
+       expect(response).to render_template(:new)
+     end
+   end
+
   end
 end

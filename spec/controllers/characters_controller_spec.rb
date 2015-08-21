@@ -19,7 +19,7 @@ RSpec.describe CharactersController, :type => :controller do
     end
 
     it "renders template 'index'" do
-      expect(response).to render_template('index')
+      expect(response).to render_template("index")
     end
 
     it "responses with 200" do 
@@ -39,7 +39,7 @@ RSpec.describe CharactersController, :type => :controller do
     end
 
     it "renders template 'show'" do
-      expect(response).to render_template(:show)
+      expect(response).to render_template("show")
     end
 
     it "responses with 200" do 
@@ -55,7 +55,7 @@ RSpec.describe CharactersController, :type => :controller do
     end
 
     it "renders template 'new'" do
-      expect(response).to render_template(:new)
+      expect(response).to render_template("new")
     end
    
     it "responses with 200" do 
@@ -75,7 +75,7 @@ RSpec.describe CharactersController, :type => :controller do
     end
 
     it "renders template 'edit'" do
-      expect(response).to render_template(:edit)
+      expect(response).to render_template("edit")
     end
 
     it "responses with 200" do 
@@ -115,7 +115,7 @@ RSpec.describe CharactersController, :type => :controller do
 
       it "renders template 'new'" do
         post :create, { :character => { :name => "ab" } }
-        expect(response).to render_template(:new)
+        expect(response).to render_template("new")
       end
     end
   end
@@ -158,7 +158,7 @@ RSpec.describe CharactersController, :type => :controller do
 
       it "renders template 'edit'" do
         patch :update, :id => 11, :character => { :name => "Wa" }
-        expect(response).to render_template(:edit)
+        expect(response).to render_template("edit")
       end
     end
   end

@@ -9,7 +9,7 @@ RSpec.describe CharactersController, :type => :controller do
  
   describe "GET index" do
     before do
-      @character = double(Character)
+      @characters = double(Array)
       allow(Character).to receive(:all) { @characters }
       get :index
     end
@@ -34,7 +34,7 @@ RSpec.describe CharactersController, :type => :controller do
       get :show, :id => 11
     end
 
-    it "assings character" do
+    it "assigns @character" do
       expect(assigns(:character)).to eq(@character)
     end
 
@@ -54,6 +54,10 @@ RSpec.describe CharactersController, :type => :controller do
       get :new
     end
 
+    it "assigns @character" do
+      expect(assigns(:character)).to eq(@character)
+    end
+
     it "renders template 'new'" do
       expect(response).to render_template("new")
     end
@@ -70,7 +74,7 @@ RSpec.describe CharactersController, :type => :controller do
       get :edit, :id => 11
     end
 
-    it "assings character" do
+    it "assigns @character" do
       expect(assigns(:character)).to eq(@character)
     end
 
@@ -85,6 +89,8 @@ RSpec.describe CharactersController, :type => :controller do
   end
 
   describe "POST create" do
+    let(:char_params) { { "name" => "Warrior" } }
+
     before do
       @character = double(Character)
       allow(@character).to receive(:class) { Character }
@@ -92,19 +98,24 @@ RSpec.describe CharactersController, :type => :controller do
       allow(@user).to receive_message_chain(:characters, :build) { @character }
     end
 
+    it "calls save on character" do
+      expect(@character).to receive(:save)
+      post :create, { :character => char_params }
+    end
+
     context "successfull new character" do
       before do
         allow(@character).to receive(:save) { true }
       end
 
-      it "calls save on character" do
-        expect(@character).to receive(:save) { true }
-        post :create, { :character => { :name => "Warrior" } }
+      it "redirects to the created character's page" do 
+        post :create, { :character => char_params }
+        expect(response).to redirect_to(@character)
       end
 
-      it "redirects to the created Character's page" do 
+      it "builds entered character" do
+        expect(@user).to receive_message_chain(:characters, :build).with(char_params)
         post :create, { :character => { :name => "Warrior" } }
-        expect(response).to redirect_to(@character)
       end
     end
 
@@ -126,23 +137,24 @@ RSpec.describe CharactersController, :type => :controller do
       allow(Character).to receive(:find) { @character }
     end
      
+    def do_update
+      patch :update, :id => 11, :character => { :name => "Warrior" }
+    end
+
+    it "calls update on character" do
+      expect(@character).to receive(:update)
+      do_update
+    end
+
     context "successfull character update" do
-      def do_update
-        patch :update, :id => 11, :character => { :name => "Warrior" }
-      end
 
       before do
         allow(@character).to receive(:update) { true }
       end
 
-      it "assigns character" do
+      it "assigns @character" do
         do_update
         expect(assigns(:character)).to eq(@character)
-      end
-
-      it "calls update on character" do
-        expect(@character).to receive(:update) { true }
-        do_update
       end
 
       it "redirects to updated character's page" do
@@ -170,7 +182,7 @@ RSpec.describe CharactersController, :type => :controller do
       allow(@character).to receive(:destroy)
     end
 
-    it "assigns character" do
+    it "assigns @character" do
       delete :destroy, :id => 11
       expect(assigns(:character)).to eq(@character)
     end

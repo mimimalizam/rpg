@@ -6,6 +6,4 @@ FactoryGirl.define do
     f.password "doejohndoe"
   end 
 
-  factory :character do |f|
-  end 
 end

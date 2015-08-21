@@ -21,7 +21,7 @@ class CharactersController < ApplicationController
     @character = current_user.characters.build(character_params)
 
     if @character.save
-      redirect_to @character
+      redirect_to character_path(@character)
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
 
     if @character.update(character_params)
-      redirect_to @character
+      redirect_to character_path(@character)
     else
       render 'edit'
     end
@@ -41,7 +41,7 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
     @character.destroy
 
-    redirect_to characters_path
+    redirect_to characters_path 
   end
 
   private

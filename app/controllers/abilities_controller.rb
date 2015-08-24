@@ -12,8 +12,12 @@ class AbilitiesController < ApplicationController
   def create
     @character = Character.find(params[:character_id])
     @ability = @character.abilities.build(allowed_params)
-    @ability.save
-    redirect_to character_path(@character)
+
+    if @ability.save
+      redirect_to character_path(@character)
+    else
+      render 'new'
+    end
   end
 
   def update

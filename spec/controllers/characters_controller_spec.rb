@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.describe CharactersController, :type => :controller do
-
   before do
     @user = double(User)
     allow(controller).to receive(:authenticate_user!)

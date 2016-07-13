@@ -10,7 +10,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
-gem 'pg', :require => 'pg'
 gem 'carrierwave'
 gem 'kaminari'
 
@@ -26,6 +25,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
+  gem 'pg', :require => 'pg'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,5 +42,6 @@ group :test do
 end
 
 group :production do
+  gem "mysql", "2.9.0"
   gem 'rails_12factor', '0.0.2'
 end

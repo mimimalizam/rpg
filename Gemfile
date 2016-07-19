@@ -13,7 +13,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'kaminari'
 
-gem 'pg', :require => 'pg'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -26,6 +25,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
+  gem 'pg', :require => 'pg'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,4 +43,5 @@ end
 
 group :production do
   gem 'rails_12factor', '0.0.2'
+  gem "mysql"
 end

@@ -24,6 +24,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+  gem "codeclimate-test-reporter", group: :test, require: nil
   gem 'factory_girl_rails'
   gem 'pg', :require => 'pg'
   gem 'rspec-rails'
@@ -39,9 +40,4 @@ group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-end
-
-group :production do
-  gem 'rails_12factor', '0.0.2'
-  gem "mysql"
 end

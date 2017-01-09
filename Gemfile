@@ -24,7 +24,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-  gem "codeclimate-test-reporter", group: :test, require: nil
   gem 'factory_girl_rails'
   gem 'pg', :require => 'pg'
   gem 'rspec-rails'
@@ -32,11 +31,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
 group :test do
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
+
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'selenium-webdriver'

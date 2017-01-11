@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: 67c72039-885c-4cc9-b2de-ebd558df1839_development
+  username:  runner
+  password: semaphoredb
+  encoding: utf8
+  pool: 5
+
+test: &test
+  adapter: postgresql
+  database: 67c72039-885c-4cc9-b2de-ebd558df1839_test
+  username: runner
+  password: semaphoredb
+  encoding: utf8
+  pool: 5
+  min_messages: warning
+
+cucumber:
+  <<: *test

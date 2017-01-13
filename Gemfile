@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
+
+gem "coveralls", require: false
+
+gem 'pg', :require => 'pg'
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -25,7 +29,6 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'pg', :require => 'pg'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,9 +42,4 @@ group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-end
-
-group :production do
-  gem 'rails_12factor', '0.0.2'
-  gem "mysql"
 end

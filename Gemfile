@@ -40,8 +40,3 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
 end
-
-group :production do
-  gem 'rails_12factor', '0.0.2'
-  gem "mysql"
-end

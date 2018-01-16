@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '5.0.0'
+gem 'pg', :require => 'pg'
 gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'uglifier'
@@ -25,7 +26,6 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'pg', :require => 'pg'
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
